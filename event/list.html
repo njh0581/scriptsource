@@ -42,13 +42,25 @@
       // 배열, 객체
       const products = [
         { id: 0, price: 70000, title: "Blossom Dress" },
-        { id: 1, price: 50000, title: "Springfild Shirt" },
+        { id: 1, price: 50000, title: "Springfield Shirt" },
         { id: 2, price: 60000, title: "Black Monasery" },
       ];
       // const obj = {key:value, key:value,....};
 
       console.log(products[1]); //  { id: 0, price: 70000, title: "Blossom Dress" }
       console.log(products[1].title); //  { id: 0, price: 70000, title: "Blossom Dress" }
+
+      // products 값 화면 출력
+      // 디자인 영역 가져오기 => products 값 삽입
+      const cards = document.querySelectorAll(".card");
+      cards.forEach((card, idx) => {
+        console.log(card, " ", idx);
+        console.log(card.querySelector("h5").innerHTML);
+        console.log(card.querySelector("p > span").innerHTML);
+
+        card.querySelector("h5").innerHTML = products[idx].title;
+        card.querySelector("p > span").innerHTML = products[idx].price;
+      });
     </script>
   </body>
 </html>
