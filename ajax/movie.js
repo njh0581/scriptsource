@@ -50,6 +50,14 @@ function show(movieCd) {
       // 상영시간 : showTm
       let showTm = movieInfo.showTm;
       let directors = "";
+      movieInfo.directors.forEach((director) => {
+        directors += `${director.peopleNm}, `;
+      });
+      let actors = "";
+      movieInfo.actors.forEach((actor) => {
+        actors += `${actor.peopleNm}, `;
+      });
+
       // 감독 : directors
       // 배우 : actors
       result += `<ul>`;
@@ -59,13 +67,6 @@ function show(movieCd) {
       result += `<li> 감독 : ${directors}</li>`;
       result += `<li> 출연 배우 : ${actors}</li>`;
       result += `</ul>`;
-      movieInfo.directors.forEach((director) => {
-        directors += `${director.peopleNm}, `;
-      });
-      let actors = "";
-      movieInfo.actors.forEach((actor) => {
-        actors += `${actor.peopleNm}, `;
-      });
       document.querySelector(".box2").innerHTML = result;
     })
     .catch(() => console.log("주소 확인"));
